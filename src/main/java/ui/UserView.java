@@ -10,13 +10,23 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.function.Consumer;
 
+/**
+ * The UserView class represents a user interface panel for library users.
+ * It displays three tabs: all library titles, available titles for borrowing, and the user's borrowing history.
+ * This class extends JPanel and implements the UserContract.View interface.
+ */
 public class UserView extends JPanel implements UserContract.View {
+
     private final TablePanel allTiles = new TablePanel("All Library Titles");
     private final TablePanel availableTiles = new TablePanel("Available Titles for Borrowing");
     private final TablePanel borrowingHistory = new TablePanel("Your Borrowing History");
 
     private final JTabbedPane tabbedPane = new JTabbedPane();
 
+    /**
+     * Constructs the UserView panel.
+     * Initializes and configures the tabbed pane and table panels for the user interface.
+     */
     public UserView() {
         configure();
         configureTabbedPane();
@@ -26,10 +36,18 @@ public class UserView extends JPanel implements UserContract.View {
         addAll();
     }
 
+    /**
+     * Configures the layout for the UserView panel.
+     */
     private void configure() {
         setLayout(new BorderLayout());
     }
 
+    /**
+     * Configures the appearance and behavior of a given TablePanel.
+     *
+     * @param tablePanel the TablePanel to configure
+     */
     private void configureTablePanel(TablePanel tablePanel) {
         tablePanel.getTable().setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 
@@ -66,7 +84,6 @@ public class UserView extends JPanel implements UserContract.View {
                     ((JLabel) component).setHorizontalAlignment(SwingConstants.LEFT);
                 }
 
-
                 if (isSelected) {
                     component.setBackground(Palette.SELECTED.getColor());
                     Fonts.applyToComponent(
@@ -80,6 +97,9 @@ public class UserView extends JPanel implements UserContract.View {
         });
     }
 
+    /**
+     * Configures the tabbed pane by adding tabs for all titles, available titles, and borrowing history.
+     */
     private void configureTabbedPane() {
         tabbedPane.addTab("All Titles", allTiles);
         tabbedPane.addTab("Available Titles", availableTiles);
@@ -95,10 +115,18 @@ public class UserView extends JPanel implements UserContract.View {
         tabbedPane.addChangeListener(null);
     }
 
+    /**
+     * Adds the tabbed pane to the main panel layout.
+     */
     private void addAll() {
         add(tabbedPane, BorderLayout.CENTER);
     }
 
+    /**
+     * Creates a dialog box to prompt the user for their user ID.
+     *
+     * @param consumer a Consumer callback to handle the entered user ID
+     */
     @Override
     public void createUserIdInputPane(Consumer<String> consumer) {
         String inputText = "";
@@ -113,16 +141,34 @@ public class UserView extends JPanel implements UserContract.View {
         consumer.accept(inputText);
     }
 
+    /**
+     * Fills the "All Titles" table with data.
+     *
+     * @param columns the column headers for the table
+     * @param data    the data to populate the table
+     */
     @Override
     public void fillAllTitles(String[] columns, String[][] data) {
         allTiles.getTable().setModel(new DefaultTableModel(data, columns));
     }
 
+    /**
+     * Fills the "Available Titles" table with data.
+     *
+     * @param columns the column headers for the table
+     * @param data    the data to populate the table
+     */
     @Override
     public void fillAvailableTitles(String[] columns, String[][] data) {
         availableTiles.getTable().setModel(new DefaultTableModel(data, columns));
     }
 
+    /**
+     * Fills the "Borrowing History" table with data.
+     *
+     * @param columns the column headers for the table
+     * @param data    the data to populate the table
+     */
     @Override
     public void fillBorrowingHistory(String[] columns, String[][] data) {
         borrowingHistory.getTable().setModel(new DefaultTableModel(data, columns));
