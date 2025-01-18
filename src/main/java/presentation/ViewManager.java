@@ -13,7 +13,6 @@ public class ViewManager {
     private final MainFrame mainFrame = new MainFrame();
     private JPanel currentView;
 
-    // Презентеры для каждого вида
     private UserPresenter userPresenter;
     private LibrarianPresenter librarianPresenter;
 

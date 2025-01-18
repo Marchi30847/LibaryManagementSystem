@@ -1,5 +1,6 @@
 package data.entities;
 
+import data.annotations.Display;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -7,23 +8,27 @@ import java.util.Date;
 @Entity
 @Table(name = "borrowing")
 public class Borrowing {
+    @Display
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Display
     @ManyToOne
     @JoinColumn(name = "MEMBERID", nullable = false)
     private Member member;
 
+    @Display
     @ManyToOne
     @JoinColumn(name = "COPYID", nullable = false)
     private Copy copy;
 
-
+    @Display
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     private Date borrowDate;
 
+    @Display
     @Temporal(TemporalType.DATE)
     private Date returnDate;
 

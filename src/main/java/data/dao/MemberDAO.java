@@ -1,5 +1,6 @@
 package data.dao;
 
+import data.annotations.Display;
 import data.dependencies.DAO;
 import data.entities.Member;
 
@@ -11,6 +12,7 @@ public class MemberDAO extends DAO<Member> {
     @Override
     public List<String> getColumnNames() {
         return Arrays.stream(Member.class.getDeclaredFields())
+                .filter(field -> field.isAnnotationPresent(Display.class))
                 .map(Field::getName)
                 .toList();
     }

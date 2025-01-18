@@ -1,20 +1,25 @@
 package data.entities;
 
+import data.annotations.Display;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "publisher")
 public class Publisher {
+    @Display
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Display
     @Column(nullable = false)
     private String name;
 
+    @Display
     @Column(nullable = false)
     private String address;
 
+    @Display
     @Column(nullable = false)
     private String phoneNumber;
 

@@ -1,5 +1,6 @@
 package data.dao;
 
+import data.annotations.Display;
 import data.dependencies.DAO;
 import data.entities.Librarian;
 
@@ -11,6 +12,7 @@ public class LibrarianDAO extends DAO<Librarian> {
     @Override
     public List<String> getColumnNames() {
         return Arrays.stream(Librarian.class.getDeclaredFields())
+                .filter(field -> field.isAnnotationPresent(Display.class))
                 .map(Field::getName)
                 .toList();
     }

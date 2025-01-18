@@ -1,23 +1,29 @@
 package data.entities;
 
+import data.annotations.Display;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Member")
 public class Member {
+    @Display
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Display
     @Column(nullable = false)
     private String name;
 
+    @Display
     @Column(nullable = false, unique = true)
     private String email;
 
+    @Display
     @Column(nullable = false)
     private String phoneNumber;
 
+    @Display
     @Column(nullable = false)
     private String address;
 

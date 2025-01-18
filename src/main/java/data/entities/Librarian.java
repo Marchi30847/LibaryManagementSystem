@@ -1,5 +1,6 @@
 package data.entities;
 
+import data.annotations.Display;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -7,6 +8,7 @@ import java.util.Date;
 @Entity
 @Table(name = "librarian")
 public class Librarian {
+    @Display
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -15,10 +17,12 @@ public class Librarian {
     @JoinColumn(name = "memberId", nullable = false)
     private Member member;
 
+    @Display
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     private Date employmentDate;
 
+    @Display
     @Column(nullable = false)
     private String position;
 
@@ -31,11 +35,11 @@ public class Librarian {
         this.id = id;
     }
 
-    public Member getUser() {
+    public Member getMember() {
         return member;
     }
 
-    public void setUser(Member member) {
+    public void setMember(Member member) {
         this.member = member;
     }
 
@@ -57,6 +61,6 @@ public class Librarian {
 
     @Override
     public String toString() {
-        return getUser().getName();
+        return getMember().getName();
     }
 }

@@ -1,13 +1,9 @@
 package data.dependencies;
 
-import jakarta.persistence.metamodel.Attribute;
-import jakarta.persistence.metamodel.EntityType;
-import jakarta.persistence.metamodel.Metamodel;
 import utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.Arrays;
 import java.util.List;
 
 public abstract class DAO<T> {
@@ -34,6 +30,15 @@ public abstract class DAO<T> {
     public T getById(int id) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.get(getEntityClass(), id);
+        }
+    }
+
+    public T getByRow(int rowIndex) {
+        List<T> entities = getAll();
+        if (rowIndex >= 0 && rowIndex < entities.size()) {
+            return entities.get(rowIndex);
+        } else {
+            throw new IllegalArgumentException("Invalid row index: " + rowIndex);
         }
     }
 

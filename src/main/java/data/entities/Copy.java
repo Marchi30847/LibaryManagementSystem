@@ -1,10 +1,12 @@
 package data.entities;
 
+import data.annotations.Display;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "copy")
 public class Copy {
+    @Display
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -13,9 +15,11 @@ public class Copy {
     @JoinColumn(name = "bookId", nullable = false)
     private Book book;
 
+    @Display
     @Column(nullable = false)
     private int copyNumber;
 
+    @Display
     @Column(nullable = false)
     private String status;
 

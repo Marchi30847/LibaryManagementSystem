@@ -3,7 +3,6 @@ package presentation;
 import data.dependencies.UserContract;
 
 import java.util.Arrays;
-import java.util.Map;
 
 public class UserPresenter implements UserContract.Presenter {
     private final UserContract.View view;
@@ -17,6 +16,7 @@ public class UserPresenter implements UserContract.Presenter {
         view.createUserIdInputPane(
                 input -> userID = Integer.parseInt(input)
         );
+        initListeners();
         model.setUserId(userID);
         fillTables();
     }

@@ -1,17 +1,21 @@
 package data.entities;
 
+import data.annotations.Display;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "book")
 public class Book {
+    @Display
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Display
     @Column(nullable = false)
     private String title;
 
+    @Display
     @Column(nullable = false)
     private String author;
 
@@ -20,9 +24,11 @@ public class Book {
     @JoinColumn(name = "publisherId", nullable = false)
     private Publisher publisher;
 
+    @Display
     @Column(nullable = false)
     private int publicationYear;
 
+    @Display
     @Column(nullable = false, unique = true)
     private String isbn;
 
