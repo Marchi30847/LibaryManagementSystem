@@ -75,6 +75,6 @@ public class Borrowing {
 
     @Override
     public String toString() {
-        return copy.getBook().getTitle();
+        return String.valueOf(id);
     }
 }

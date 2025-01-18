@@ -11,6 +11,7 @@ public class Copy {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Display
     @ManyToOne
     @JoinColumn(name = "bookId", nullable = false)
     private Book book;
@@ -58,6 +59,6 @@ public class Copy {
 
     @Override
     public String toString() {
-        return book.getTitle();
+        return String.valueOf(id);
     }
 }

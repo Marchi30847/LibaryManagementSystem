@@ -58,6 +58,6 @@ public class Publisher {
 
     @Override
     public String toString() {
-        return name;
+        return String.valueOf(id);
     }
 }

@@ -26,7 +26,7 @@ public class LibrarianPresenter implements LibrarianContract.Presenter {
     }
 
     private ActionListener createInsertTitleButtonListener() {
-        return e -> {
+        return _ -> {
                 switch (view.getCurrentTable()) {
                     case BOOK -> {
                         handleAddBook();
@@ -57,7 +57,7 @@ public class LibrarianPresenter implements LibrarianContract.Presenter {
     }
 
     private ActionListener createDeleteTitleButtonListener() {
-       return e -> {
+       return _ -> {
             switch (view.getCurrentTable()) {
                 case BOOK -> {
                     handleDeleteBook();
@@ -88,7 +88,34 @@ public class LibrarianPresenter implements LibrarianContract.Presenter {
     }
 
     private ActionListener createUpdateTitleButtonListener() {
-        return null;
+        return _ -> {
+            switch (view.getCurrentTable()) {
+                case BOOK -> {
+                    handleUpdateBook();
+                    fillBook();
+                }
+                case BORROWING -> {
+                    handleUpdateBorrowing();
+                    fillBorrowing();
+                }
+                case COPY -> {
+                    handleUpdateCopy();
+                    fillCopy();
+                }
+                case LIBRARIAN -> {
+                    handleUpdateLibrarian();
+                    fillLibrarian();
+                }
+                case MEMBER -> {
+                    handleUpdateMember();
+                    fillMember();
+                }
+                case PUBLISHER -> {
+                    handleUpdatePublisher();
+                    fillPublisher();
+                }
+            }
+        };
     }
 
     @Override
@@ -286,5 +313,128 @@ public class LibrarianPresenter implements LibrarianContract.Presenter {
         }
 
         model.deletePublisher(selectedRow);
+    }
+
+    private void handleUpdateBook() {
+        int selectedRow = view.getCurrentSelectedRow();
+        if (selectedRow < 0) {
+            view.createErrorDialog("Error", "Please select a publisher to delete.");
+            return;
+        }
+
+        int id = Integer.parseInt(view.getValueAt(selectedRow, 0));
+        String title = JOptionPane.showInputDialog("Update Title:", view.getValueAt(selectedRow, 1));
+        String author = JOptionPane.showInputDialog("Update Author:", view.getValueAt(selectedRow, 2));
+        String publisherId = JOptionPane.showInputDialog("Update Publisher ID:", view.getValueAt(selectedRow, 3));
+        String year = JOptionPane.showInputDialog("Update Year:", view.getValueAt(selectedRow,   4));
+        String isbn = JOptionPane.showInputDialog("Update ISBN:", view.getValueAt(selectedRow, 5));
+
+        if (title == null || author == null || publisherId == null || year == null || isbn == null) {
+            view.createErrorDialog("Error", "All fields are required.");
+            return;
+        }
+
+        model.updateBook(id, title, author, publisherId, year, isbn);
+    }
+
+    private void handleUpdateBorrowing() {
+        int selectedRow = view.getCurrentSelectedRow();
+        if (selectedRow < 0) {
+            view.createErrorDialog("Error", "Please select a borrowing to update.");
+            return;
+        }
+
+        int id = Integer.parseInt(view.getValueAt(selectedRow, 0));
+        String memberId = JOptionPane.showInputDialog("Update Member ID:", view.getValueAt(selectedRow, 1));
+        String copyId = JOptionPane.showInputDialog("Update Copy ID:", view.getValueAt(selectedRow, 2));
+        String borrowDate = JOptionPane.showInputDialog("Update Borrow Date:", view.getValueAt(selectedRow, 3));
+        String returnDate = JOptionPane.showInputDialog("Update Return Date:", view.getValueAt(selectedRow, 4));
+
+        if (memberId == null || copyId == null || borrowDate == null || returnDate == null) {
+            view.createErrorDialog("Error", "All fields are required.");
+            return;
+        }
+
+        model.updateBorrowing(id, memberId, copyId, borrowDate, returnDate);
+    }
+
+    private void handleUpdateCopy() {
+        int selectedRow = view.getCurrentSelectedRow();
+        if (selectedRow < 0) {
+            view.createErrorDialog("Error", "Please select a copy to update.");
+            return;
+        }
+
+        int id = Integer.parseInt(view.getValueAt(selectedRow, 0));
+        String bookId = JOptionPane.showInputDialog("Update Book ID:", view.getValueAt(selectedRow, 1));
+        String copyNumber = JOptionPane.showInputDialog("Update Copy Number:", view.getValueAt(selectedRow, 2));
+        String condition = JOptionPane.showInputDialog("Update Condition:", view.getValueAt(selectedRow, 3));
+
+        if (bookId == null || copyNumber == null || condition == null) {
+            view.createErrorDialog("Error", "All fields are required.");
+            return;
+        }
+
+        model.updateCopy(id, bookId, copyNumber, condition);
+
+    }
+
+    private void handleUpdateLibrarian() {
+        int selectedRow = view.getCurrentSelectedRow();
+        if (selectedRow < 0) {
+            view.createErrorDialog("Error", "Please select a librarian to update.");
+            return;
+        }
+
+        int id = Integer.parseInt(view.getValueAt(selectedRow, 0));
+        String memberId = JOptionPane.showInputDialog("Update Member ID:", view.getValueAt(selectedRow, 1));
+        String employmentDate = JOptionPane.showInputDialog("Update Employment Date:", view.getValueAt(selectedRow, 2));
+        String position = JOptionPane.showInputDialog("Update Position:", view.getValueAt(selectedRow, 3));
+
+        if (memberId == null || employmentDate == null || position == null) {
+            view.createErrorDialog("Error", "All fields are required.");
+        }
+
+        model.updateLibrarian(id, memberId, employmentDate, position);
+    }
+
+    private void handleUpdateMember() {
+        int selectedRow = view.getCurrentSelectedRow();
+        if (selectedRow < 0) {
+            view.createErrorDialog("Error", "Please select a member to update.");
+            return;
+        }
+
+        int id = Integer.parseInt(view.getValueAt(selectedRow, 0));
+        String name = JOptionPane.showInputDialog("Update Name:", view.getValueAt(selectedRow, 1));
+        String email = JOptionPane.showInputDialog("Update Email:", view.getValueAt(selectedRow, 2));
+        String phone = JOptionPane.showInputDialog("Update Phone:", view.getValueAt(selectedRow, 3));
+        String address = JOptionPane.showInputDialog("Update Address:", view.getValueAt(selectedRow, 4));
+
+        if (name == null || email == null || phone == null || address == null) {
+            view.createErrorDialog("Error", "All fields are required.");
+            return;
+        }
+
+        model.updateMember(id, name, email, phone, address);
+    }
+
+    private void handleUpdatePublisher() {
+        int selectedRow = view.getCurrentSelectedRow();
+        if (selectedRow < 0) {
+            view.createErrorDialog("Error", "Please select a publisher to update.");
+            return;
+        }
+
+        int id = Integer.parseInt(view.getValueAt(selectedRow, 0));
+        String name = JOptionPane.showInputDialog("Update Publisher Name:", view.getValueAt(selectedRow, 1));
+        String address = JOptionPane.showInputDialog("Update Publisher Address:", view.getValueAt(selectedRow, 2));
+        String phone = JOptionPane.showInputDialog("Update Publisher Phone:", view.getValueAt(selectedRow, 3));
+
+        if (name == null || address == null || phone == null) {
+            view.createErrorDialog("Error", "All fields are required.");
+        }
+
+        model.updatePublisher(id, name, address, phone);
     }
 }

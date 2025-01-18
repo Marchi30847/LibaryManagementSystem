@@ -143,8 +143,8 @@ public class LibrarianView extends JPanel implements LibrarianContract.View {
     }
 
     @Override
-    public String createInputDialog(String title) {
-        return JOptionPane.showInputDialog(title);
+    public String createInputDialog(String title, String initialValue) {
+        return JOptionPane.showInputDialog(title, initialValue);
     }
 
     @Override
@@ -155,6 +155,11 @@ public class LibrarianView extends JPanel implements LibrarianContract.View {
     @Override
     public Tables getCurrentTable() {
         return currentTable;
+    }
+
+    @Override
+    public String getValueAt(int row, int column) {
+        return tablePanels.get(currentTable).getTable().getValueAt(row, column).toString();
     }
 
     @Override

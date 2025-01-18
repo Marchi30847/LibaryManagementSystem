@@ -15,6 +15,8 @@ import data.entities.Member;
 import data.entities.Publisher;
 
 import java.lang.reflect.Field;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -196,33 +198,105 @@ public class LibrarianModel implements LibrarianContract.Model {
     }
 
     @Override
-    public void updateBook(Book book) {
+    public void updateBook(int id, String title , String author, String publisherId, String year, String isbn) {
+        Book book = bookDAO.getById(id);
 
+        if (book == null) {
+            throw new IllegalArgumentException("Book with ID " + id + " does not exist.");
+        }
+
+        book.setTitle(title);
+        book.setAuthor(author);
+        book.setPublisher(publisherDAO.getById(Integer.parseInt(publisherId)));
+        book.setPublicationYear(Integer.parseInt(year));
+        book.setIsbn(isbn);
+
+        bookDAO.update(book);    }
+
+    @Override
+    public void updateBorrowing(int id, String memberId, String copyId, String borrowDate, String returnDate) {
+        Borrowing borrowing = borrowingDAO.getById(id);
+
+        if (borrowing == null) {
+            throw new IllegalArgumentException("Borrowing with ID " + id + " does not exist.");
+        }
+
+        borrowing.setMember(memberDAO.getById(Integer.parseInt(memberId)));
+        borrowing.setCopy(copyDAO.getById(Integer.parseInt(copyId)));
+        borrowing.setBorrowDate(parseDate(borrowDate));
+        borrowing.setReturnDate(parseDate(returnDate));
+
+        borrowingDAO.update(borrowing);
     }
 
     @Override
-    public void updateBorrowing(Borrowing borrowing) {
+    public void updateCopy(int id, String bookId, String copyNumber, String condition) {
+        Copy copy = copyDAO.getById(id);
 
+        if (copy == null) {
+            throw new IllegalArgumentException("Copy with ID " + id + " does not exist.");
+        }
+
+        copy.setBook(bookDAO.getById(Integer.parseInt(bookId)));
+        copy.setCopyNumber(Integer.parseInt(copyNumber));
+        copy.setStatus(condition);
+
+        copyDAO.update(copy);
     }
 
     @Override
-    public void updateCopy(Copy copy) {
+    public void updateLibrarian(int id, String memberId, String employmentDate, String position) {
+        Librarian librarian = librarianDAO.getById(id);
 
+        if (librarian == null) {
+            throw new IllegalArgumentException("Librarian with ID " + id + " does not exist.");
+        }
+
+        librarian.setMember(memberDAO.getById(Integer.parseInt(memberId)));
+        librarian.setPosition(position);
+        librarian.setEmploymentDate(parseDate(employmentDate));
+
+        librarianDAO.update(librarian);
     }
 
     @Override
-    public void updateLibrarian(Librarian librarian) {
+    public void updateMember(int id, String name, String email, String phone, String address) {
+        Member user = memberDAO.getById(id);
 
+        if (user == null) {
+            throw new IllegalArgumentException("Member with ID " + id + " does not exist.");
+        }
+
+        user.setName(name);
+        user.setEmail(email);
+        user.setPhoneNumber(phone);
+        user.setAddress(address);
+
+        memberDAO.update(user);
     }
 
     @Override
-    public void updateMember(Member member) {
+    public void updatePublisher(int id, String name, String address, String phone) {
+        Publisher publisher = publisherDAO.getById(id);
 
+        if (publisher == null) {
+            throw new IllegalArgumentException("Publisher with ID " + id + " does not exist.");
+        }
+
+        publisher.setName(name);
+        publisher.setAddress(address);
+        publisher.setPhoneNumber(phone);
+
+        publisherDAO.update(publisher);
     }
 
-    @Override
-    public void updatePublisher(Publisher publisher) {
-
+    private Date parseDate(String date) {
+        try {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            return dateFormat.parse(date);
+        } catch (ParseException e) {
+            System.err.println(e.getMessage());
+            return null;
+        }
     }
-
 }

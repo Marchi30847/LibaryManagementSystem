@@ -13,8 +13,9 @@ public interface LibrarianContract {
         void addTabChangedListener();
         int getCurrentSelectedRow();
         Tables getCurrentTable();
+        String getValueAt(int row, int column);
         void updateTableModel(Tables tableType, String[] columns, String[][] data);
-        String createInputDialog(String title);
+        String createInputDialog(String title, String initialValue);
         void createErrorDialog(String title, String message);
     }
 
@@ -45,11 +46,11 @@ public interface LibrarianContract {
         void deleteMember(int memberRow);
         void deletePublisher(int publisherRow);
 
-        void updateBook(Book book);
-        void updateBorrowing(Borrowing borrowing);
-        void updateCopy(Copy copy);
-        void updateLibrarian(Librarian librarian);
-        void updateMember(Member member);
-        void updatePublisher(Publisher publisher);
+        void updateBook(int id, String title , String author, String publisherId, String year, String isbn);
+        void updateBorrowing(int id, String memberId, String copyId, String borrowDate, String returnDate);
+        void updateCopy(int id, String bookId, String copyNumber, String condition);
+        void updateLibrarian(int id, String memberId, String employmentDate, String position);
+        void updateMember(int id, String name, String email, String phone, String address);
+        void updatePublisher(int id, String name, String address, String phone);
     }
 }

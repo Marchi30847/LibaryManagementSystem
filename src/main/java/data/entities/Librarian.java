@@ -13,6 +13,7 @@ public class Librarian {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Display
     @OneToOne
     @JoinColumn(name = "memberId", nullable = false)
     private Member member;
@@ -61,6 +62,6 @@ public class Librarian {
 
     @Override
     public String toString() {
-        return getMember().getName();
+        return String.valueOf(id);
     }
 }

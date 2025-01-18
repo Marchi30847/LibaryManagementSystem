@@ -19,7 +19,7 @@ public class Book {
     @Column(nullable = false)
     private String author;
 
-
+    @Display
     @ManyToOne
     @JoinColumn(name = "publisherId", nullable = false)
     private Publisher publisher;
@@ -84,6 +84,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return title;
+        return String.valueOf(id);
     }
 }

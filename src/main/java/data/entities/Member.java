@@ -81,6 +81,6 @@ public class Member {
 
     @Override
     public String toString() {
-        return name;
+        return String.valueOf(id);
     }
 }
