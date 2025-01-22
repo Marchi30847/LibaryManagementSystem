@@ -206,6 +206,26 @@ public class LibrarianView extends JPanel implements LibrarianContract.View {
     }
 
     @Override
+    public int getCurrentSelectedColumn() {
+        return tablePanels.get(currentTable).getTable().getSelectedColumn();
+    }
+
+    @Override
+    public int getColumnCount() {
+        return tablePanels.get(currentTable).getTable().getColumnCount();
+    }
+
+    @Override
+    public int getRowCount() {
+        return tablePanels.get(currentTable).getTable().getRowCount();
+    }
+
+    @Override
+    public String getColumnName(int columnIndex) {
+        return tablePanels.get(currentTable).getTable().getColumnName(columnIndex);
+    }
+
+    @Override
     public void addInsertButtonListener(ActionListener listener) {
         insertButton.addActionListener(listener);
     }
