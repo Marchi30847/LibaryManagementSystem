@@ -6,15 +6,16 @@
     <session-factory>
         <!-- Database Connection Settings -->
         <property name="hibernate.connection.driver_class">org.h2.Driver</property>
-        <property name="hibernate.connection.url">jdbc:h2:file:./Users/yurimarchenko/IdeaProjects/LibaryManagementSystem/dbResource</property>
-        <property name="hibernate.connection.username">sa</property>
-        <property name="hibernate.connection.password"/>
+        <property name="hibernate.connection.url">jdbc:h2:file:./dbResource/myDB;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</property>
 
         <!-- Hibernate Properties -->
         <property name="hibernate.dialect">org.hibernate.dialect.H2Dialect</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
+
+        <!-- Indication to execute the SQL script after the database is created -->
+        <property name="hibernate.hbm2ddl.import_files">src/main/resources/import.sql</property>
 
         <!-- Annotated Entity Classes -->
         <mapping class="data.entities.Book"/>

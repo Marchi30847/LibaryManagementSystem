@@ -17,9 +17,10 @@ import data.entities.Publisher;
 import java.lang.reflect.Field;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+//todo добавить общий метод куда будет передаваться тип и в зависимости от этого типа будет вызываться один из множества приватных методов
 /**
  * The LibrarianModel class implements the LibrarianContract.Model interface.
  * It provides methods to manage and manipulate data related to books, borrowings, copies, librarians,
@@ -41,39 +42,49 @@ public class LibrarianModel implements LibrarianContract.Model {
      *
      * @param <T> the type of the entity
      * @param columnNames the column names to be displayed
-     * @param entities the list of entities to be mapped
-     * @param entityClass the class of the entity type
+     * @param entities the list of entities to be mapper
      * @return a 2D array of String values representing the mapped entities
      */
-    private <T> String[][] mapEntitiesToColumns(List<String> columnNames, List<T> entities, Class<T> entityClass) {
-        String[][] result = new String[entities.size() + 1][columnNames.size()];
+    private <T> String[][] mapEntitiesToColumns(List<String> columnNames, List<T> entities) {
+        List<String[]> result = new ArrayList<>();
 
-        // Setting column names in the first row
-        for (int i = 0; i < columnNames.size(); i++) {
-            result[0][i] = columnNames.get(i);
-        }
+        result.add(columnNames.toArray(new String[0]));
 
-        // Populating the entity values in subsequent rows
-        for (int j = 0; j < entities.size(); j++) {
-            T entity = entities.get(j);
+        result.addAll(entities.stream()
+                .map(entity -> columnNames.stream()
+                        .map(columnName -> {
+                            try {
+                                Field field = entity.getClass().getDeclaredField(columnName);
+                                field.setAccessible(true);
+                                Object value = field.get(entity);
+                                return value != null ? value.toString() : "null";
+                            } catch (NoSuchFieldException | IllegalAccessException e) {
+                                throw new RuntimeException("Error accessing field: " + columnName, e);
+                            }
+                        })
+                        .toArray(String[]::new))
+                .toList()
+        );
 
-            for (int i = 0; i < columnNames.size(); i++) {
-                String columnName = columnNames.get(i);
-
-                try {
-                    Field field = entityClass.getDeclaredField(columnName);
-                    field.setAccessible(true);
-                    Object value = field.get(entity);
-                    result[j + 1][i] = value != null ? value.toString() : "null";
-                } catch (NoSuchFieldException | IllegalAccessException e) {
-                    e.printStackTrace();
-                    throw new RuntimeException("Error accessing field: " + columnName, e);
-                }
-            }
-        }
-
-        return result;
+        return result.toArray(new String[0][0]);
     }
+
+
+    /*public String[][] getData() {
+
+    }
+
+    public void insert() {
+
+    }
+
+    public void delete(int row) {
+
+    }
+
+    public void update() {
+
+    }*/
 
     /**
      * Retrieves data for all members in the library.
@@ -86,7 +97,7 @@ public class LibrarianModel implements LibrarianContract.Model {
     public String[][] getMembersData() {
         List<String> columnNames = memberDAO.getColumnNames();
         List<Member> members = memberDAO.getAll();
-        return mapEntitiesToColumns(columnNames, members, Member.class);
+        return mapEntitiesToColumns(columnNames, members);
     }
 
     /**
@@ -100,7 +111,7 @@ public class LibrarianModel implements LibrarianContract.Model {
     public String[][] getBooksData() {
         List<String> columnNames = bookDAO.getColumnNames();
         List<Book> books = bookDAO.getAll();
-        return mapEntitiesToColumns(columnNames, books, Book.class);
+        return mapEntitiesToColumns(columnNames, books);
     }
 
     /**
@@ -114,7 +125,7 @@ public class LibrarianModel implements LibrarianContract.Model {
     public String[][] getBorrowingsData() {
         List<String> columnNames = borrowingDAO.getColumnNames();
         List<Borrowing> borrowings = borrowingDAO.getAll();
-        return mapEntitiesToColumns(columnNames, borrowings, Borrowing.class);
+        return mapEntitiesToColumns(columnNames, borrowings);
     }
 
     /**
@@ -128,7 +139,7 @@ public class LibrarianModel implements LibrarianContract.Model {
     public String[][] getCopiesData() {
         List<String> columnNames = copyDAO.getColumnNames();
         List<Copy> copies = copyDAO.getAll();
-        return mapEntitiesToColumns(columnNames, copies, Copy.class);
+        return mapEntitiesToColumns(columnNames, copies);
     }
 
     /**
@@ -142,7 +153,7 @@ public class LibrarianModel implements LibrarianContract.Model {
     public String[][] getLibrariansData() {
         List<String> columnNames = librarianDAO.getColumnNames();
         List<Librarian> librarians = librarianDAO.getAll();
-        return mapEntitiesToColumns(columnNames, librarians, Librarian.class);
+        return mapEntitiesToColumns(columnNames, librarians);
     }
 
     /**
@@ -156,7 +167,7 @@ public class LibrarianModel implements LibrarianContract.Model {
     public String[][] getPublishersData() {
         List<String> columnNames = publisherDAO.getColumnNames();
         List<Publisher> publishers = publisherDAO.getAll();
-        return mapEntitiesToColumns(columnNames, publishers, Publisher.class);
+        return mapEntitiesToColumns(columnNames, publishers);
     }
 
     // Methods to insert new data into the system.

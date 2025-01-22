@@ -6,6 +6,7 @@ import data.entities.Book;
 import data.entities.Borrowing;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -39,38 +40,31 @@ public class UserModel implements UserContract.Model {
      *
      * @param <T> the type of the entity
      * @param columnNames the column names to be displayed
-     * @param entities the list of entities to be mapped
-     * @param entityClass the class of the entity type
+     * @param entities the list of entities to be mapper
      * @return a 2D array of String values representing the mapped entities
      */
-    private <T> String[][] mapEntitiesToColumns(List<String> columnNames, List<T> entities, Class<T> entityClass) {
-        String[][] result = new String[entities.size() + 1][columnNames.size()];
+    private <T> String[][] mapEntitiesToColumns(List<String> columnNames, List<T> entities) {
+        List<String[]> result = new ArrayList<>();
 
-        // Setting column names in the first row
-        for (int i = 0; i < columnNames.size(); i++) {
-            result[0][i] = columnNames.get(i);
-        }
+        result.add(columnNames.toArray(new String[0]));
 
-        // Populating the entity values in subsequent rows
-        for (int j = 0; j < entities.size(); j++) {
-            T entity = entities.get(j);
+        result.addAll(entities.stream()
+                .map(entity -> columnNames.stream()
+                        .map(columnName -> {
+                            try {
+                                Field field = entity.getClass().getDeclaredField(columnName);
+                                field.setAccessible(true);
+                                Object value = field.get(entity);
+                                return value != null ? value.toString() : "null";
+                            } catch (NoSuchFieldException | IllegalAccessException e) {
+                                throw new RuntimeException("Error accessing field: " + columnName, e);
+                            }
+                        })
+                        .toArray(String[]::new))
+                .toList()
+        );
 
-            for (int i = 0; i < columnNames.size(); i++) {
-                String columnName = columnNames.get(i);
-
-                try {
-                    Field field = entityClass.getDeclaredField(columnName);
-                    field.setAccessible(true);
-                    Object value = field.get(entity);
-                    result[j + 1][i] = value != null ? value.toString() : "null";
-                } catch (NoSuchFieldException | IllegalAccessException e) {
-                    e.printStackTrace();
-                    throw new RuntimeException("Error accessing field: " + columnName, e);
-                }
-            }
-        }
-
-        return result;
+        return result.toArray(new String[0][0]);
     }
 
     /**
@@ -84,7 +78,7 @@ public class UserModel implements UserContract.Model {
     public String[][] getAllTitlesData() {
         List<String> columnNames = bookDAO.getColumnNames();
         List<Book> books = bookDAO.getAll();
-        return mapEntitiesToColumns(columnNames, books, Book.class);
+        return mapEntitiesToColumns(columnNames, books);
     }
 
     /**
@@ -109,7 +103,7 @@ public class UserModel implements UserContract.Model {
                 .filter(book -> availableBookTitles.contains(book.getTitle()))
                 .toList();
 
-        return mapEntitiesToColumns(columnNames, availableBooks, Book.class);
+        return mapEntitiesToColumns(columnNames, availableBooks);
     }
 
     /**
@@ -128,6 +122,6 @@ public class UserModel implements UserContract.Model {
                 .filter(borrowing -> borrowing.getMember().getId() == userId)
                 .toList();
 
-        return mapEntitiesToColumns(columnNames, borrowings, Borrowing.class);
+        return mapEntitiesToColumns(columnNames, borrowings);
     }
 }

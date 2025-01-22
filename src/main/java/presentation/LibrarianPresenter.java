@@ -6,7 +6,7 @@ import data.dependencies.LibrarianContract;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
-
+//todo используя рефлексию брать поля класса без аннотации праймари кии
 /**
  * LibrarianPresenter is the controller class that handles the logic for managing library entities
  * such as books, borrowings, copies, librarians, members, and publishers.

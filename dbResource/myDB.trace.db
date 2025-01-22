@@ -996,3 +996,1324 @@ java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supporte
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-01-20 19:09:39 database: wrong user or password; user: "SA"
+org.h2.message.DbException: Wrong user name or password [28000-220]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.engine.Engine.openSession(Engine.java:154)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:40)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:61)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.addConnections(DriverManagerConnectionProviderImpl.java:501)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:367)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections$Builder.build(DriverManagerConnectionProviderImpl.java:552)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:105)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:81)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:125)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:248)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:283)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:150)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:230)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:198)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:125)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:451)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:102)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:910)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:960)
+	at utils.HibernateUtil.buildSessionFactory(HibernateUtil.java:34)
+	at utils.HibernateUtil.<clinit>(HibernateUtil.java:18)
+	at data.dependencies.DAO.getAll(DAO.java:42)
+	at domain.LibrarianModel.getBooksData(LibrarianModel.java:102)
+	at presentation.LibrarianPresenter.fillBook(LibrarianPresenter.java:177)
+	at presentation.LibrarianPresenter.fillTables(LibrarianPresenter.java:165)
+	at presentation.LibrarianPresenter.<init>(LibrarianPresenter.java:35)
+	at presentation.ViewManager.switchToLibrarianView(ViewManager.java:56)
+	at presentation.ViewManager.lambda$switchToSelectionView$0(ViewManager.java:36)
+	at java.desktop/javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972)
+	at java.desktop/javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2314)
+	at java.desktop/javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:407)
+	at java.desktop/javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262)
+	at java.desktop/javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6621)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3404)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6386)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2266)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:4996)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4575)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2310)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:775)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:98)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:747)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:744)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Wrong user name or password [28000-220]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:522)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 79 more
+2025-01-20 19:11:37 database: wrong user or password; user: "SA"
+org.h2.message.DbException: Wrong user name or password [28000-220]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.engine.Engine.openSession(Engine.java:154)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:40)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:61)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.addConnections(DriverManagerConnectionProviderImpl.java:501)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:367)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections$Builder.build(DriverManagerConnectionProviderImpl.java:552)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:105)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:81)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:125)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:248)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:283)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:150)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:230)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:198)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:125)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:451)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:102)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:910)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:960)
+	at utils.HibernateUtil.buildSessionFactory(HibernateUtil.java:34)
+	at utils.HibernateUtil.<clinit>(HibernateUtil.java:18)
+	at data.dependencies.DAO.getAll(DAO.java:42)
+	at domain.UserModel.getAllTitlesData(UserModel.java:86)
+	at presentation.UserPresenter.fillTables(UserPresenter.java:60)
+	at presentation.UserPresenter.<init>(UserPresenter.java:40)
+	at presentation.ViewManager.switchToUserView(ViewManager.java:46)
+	at presentation.ViewManager.lambda$switchToSelectionView$1(ViewManager.java:37)
+	at java.desktop/javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972)
+	at java.desktop/javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2314)
+	at java.desktop/javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:407)
+	at java.desktop/javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262)
+	at java.desktop/javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6621)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3404)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6386)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2266)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:4996)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4575)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2310)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:775)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:98)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:747)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:744)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Wrong user name or password [28000-220]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:522)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 78 more
+2025-01-20 20:00:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-220]
+2025-01-20 20:00:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-220]
+2025-01-20 20:10:19 database: wrong user or password; user: "SUS"
+org.h2.message.DbException: Wrong user name or password [28000-220]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.engine.Engine.openSession(Engine.java:154)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:40)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:61)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.addConnections(DriverManagerConnectionProviderImpl.java:501)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:367)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections$Builder.build(DriverManagerConnectionProviderImpl.java:552)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:105)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:81)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:125)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:248)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:283)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:150)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:230)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:198)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:125)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:451)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:102)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:910)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:960)
+	at utils.HibernateUtil.buildSessionFactory(HibernateUtil.java:34)
+	at utils.HibernateUtil.<clinit>(HibernateUtil.java:18)
+	at data.dependencies.DAO.getAll(DAO.java:42)
+	at domain.LibrarianModel.getBooksData(LibrarianModel.java:102)
+	at presentation.LibrarianPresenter.fillBook(LibrarianPresenter.java:177)
+	at presentation.LibrarianPresenter.fillTables(LibrarianPresenter.java:165)
+	at presentation.LibrarianPresenter.<init>(LibrarianPresenter.java:35)
+	at presentation.ViewManager.switchToLibrarianView(ViewManager.java:56)
+	at presentation.ViewManager.lambda$switchToSelectionView$0(ViewManager.java:36)
+	at java.desktop/javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972)
+	at java.desktop/javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2314)
+	at java.desktop/javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:407)
+	at java.desktop/javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262)
+	at java.desktop/javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6621)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3404)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6386)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2266)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:4996)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4575)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2310)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:775)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:98)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:747)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:744)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Wrong user name or password [28000-220]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:522)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 79 more
+2025-01-20 20:44:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-220]
+2025-01-20 21:05:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-220]
+2025-01-20 21:06:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-220]
+2025-01-20 20:44:33 jdbc[3]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1573)
+	at com.intellij.database.remote.jdbc.impl.RemoteConnectionImpl.setClientInfo(RemoteConnectionImpl.java:469)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-01-20 20:44:33 jdbc[4]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1573)
+	at com.intellij.database.remote.jdbc.impl.RemoteConnectionImpl.setClientInfo(RemoteConnectionImpl.java:469)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-01-20 21:45:17 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: /Users/yurimarchenko/IdeaProjects/LibaryManagementSystem/dbResource/myDB.mv.db [2.2.220/7]" [50000-220]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1547)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2036)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:40)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:61)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.addConnections(DriverManagerConnectionProviderImpl.java:501)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:367)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections$Builder.build(DriverManagerConnectionProviderImpl.java:552)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:105)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:81)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:125)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:248)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:283)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:150)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:230)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:198)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:125)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:451)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:102)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:910)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:960)
+	at utils.HibernateUtil.buildSessionFactory(HibernateUtil.java:34)
+	at utils.HibernateUtil.<clinit>(HibernateUtil.java:18)
+	at data.dependencies.DAO.getAll(DAO.java:42)
+	at domain.LibrarianModel.getBooksData(LibrarianModel.java:96)
+	at presentation.LibrarianPresenter.fillBook(LibrarianPresenter.java:177)
+	at presentation.LibrarianPresenter.fillTables(LibrarianPresenter.java:165)
+	at presentation.LibrarianPresenter.<init>(LibrarianPresenter.java:35)
+	at presentation.ViewManager.switchToLibrarianView(ViewManager.java:56)
+	at presentation.ViewManager.lambda$switchToSelectionView$0(ViewManager.java:36)
+	at java.desktop/javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972)
+	at java.desktop/javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2314)
+	at java.desktop/javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:407)
+	at java.desktop/javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262)
+	at java.desktop/javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6621)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3404)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6386)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2266)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:4996)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4575)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2310)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:775)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:98)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:747)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:744)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: /Users/yurimarchenko/IdeaProjects/LibaryManagementSystem/dbResource/myDB.mv.db [2.2.220/7]" [50000-220]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 85 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: /Users/yurimarchenko/IdeaProjects/LibaryManagementSystem/dbResource/myDB.mv.db [2.2.220/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 79 more
+2025-01-20 21:45:42 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: /Users/yurimarchenko/IdeaProjects/LibaryManagementSystem/dbResource/myDB.mv.db [2.2.220/7]" [50000-220]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1547)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2036)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:40)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:61)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.addConnections(DriverManagerConnectionProviderImpl.java:501)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:367)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections$Builder.build(DriverManagerConnectionProviderImpl.java:552)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:105)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:81)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:125)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:248)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:283)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:150)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:230)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:198)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:125)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:451)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:102)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:910)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:960)
+	at utils.HibernateUtil.buildSessionFactory(HibernateUtil.java:34)
+	at utils.HibernateUtil.<clinit>(HibernateUtil.java:18)
+	at data.dependencies.DAO.getAll(DAO.java:42)
+	at domain.LibrarianModel.getBooksData(LibrarianModel.java:96)
+	at presentation.LibrarianPresenter.fillBook(LibrarianPresenter.java:177)
+	at presentation.LibrarianPresenter.fillTables(LibrarianPresenter.java:165)
+	at presentation.LibrarianPresenter.<init>(LibrarianPresenter.java:35)
+	at presentation.ViewManager.switchToLibrarianView(ViewManager.java:56)
+	at presentation.ViewManager.lambda$switchToSelectionView$0(ViewManager.java:36)
+	at java.desktop/javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972)
+	at java.desktop/javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2314)
+	at java.desktop/javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:407)
+	at java.desktop/javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262)
+	at java.desktop/javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6621)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3404)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6386)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2266)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:4996)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4575)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2310)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:775)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:98)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:747)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:744)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: /Users/yurimarchenko/IdeaProjects/LibaryManagementSystem/dbResource/myDB.mv.db [2.2.220/7]" [50000-220]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 85 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: /Users/yurimarchenko/IdeaProjects/LibaryManagementSystem/dbResource/myDB.mv.db [2.2.220/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 79 more
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Publisher ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Publisher ( [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]name VARCHAR(255) NOT NULL,"; SQL statement:
+name VARCHAR(255) NOT NULL, [42000-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]address VARCHAR(255) NOT NULL,"; expected "ALTER, ANALYZE"; SQL statement:
+address VARCHAR(255) NOT NULL, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]phoneNumber VARCHAR(50) NOT NULL"; expected "PREPARE"; SQL statement:
+phoneNumber VARCHAR(50) NOT NULL [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Member ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Member ( [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]name VARCHAR(255) NOT NULL,"; SQL statement:
+name VARCHAR(255) NOT NULL, [42000-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]email VARCHAR(255) NOT NULL UNIQUE,"; expected "EXPLAIN, EXECUTE"; SQL statement:
+email VARCHAR(255) NOT NULL UNIQUE, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]phoneNumber VARCHAR(50) NOT NULL,"; expected "PREPARE"; SQL statement:
+phoneNumber VARCHAR(50) NOT NULL, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]address VARCHAR(255) NOT NULL"; expected "ALTER, ANALYZE"; SQL statement:
+address VARCHAR(255) NOT NULL [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Book ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Book ( [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]title VARCHAR(255) NOT NULL,"; expected "TRUNCATE"; SQL statement:
+title VARCHAR(255) NOT NULL, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]author VARCHAR(255) NOT NULL,"; expected "ALTER, ANALYZE"; SQL statement:
+author VARCHAR(255) NOT NULL, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]publisherId INT NOT NULL,"; expected "PREPARE"; SQL statement:
+publisherId INT NOT NULL, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]publicationYear INT NOT NULL,"; expected "PREPARE"; SQL statement:
+publicationYear INT NOT NULL, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]isbn VARCHAR(50) NOT NULL UNIQUE,"; expected "INSERT"; SQL statement:
+isbn VARCHAR(50) NOT NULL UNIQUE, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_books_publisher FOREIGN KEY (publisherId) REFERENCES Publisher(id)"; SQL statement:
+CONSTRAINT fk_books_publisher FOREIGN KEY (publisherId) REFERENCES Publisher(id) [42000-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Copy ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Copy ( [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]bookId INT NOT NULL,"; expected "BACKUP, BEGIN"; SQL statement:
+bookId INT NOT NULL, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]copyNumber INT NOT NULL,"; expected "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT"; SQL statement:
+copyNumber INT NOT NULL, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]status VARCHAR(50) NOT NULL,"; expected "SAVEPOINT, SCRIPT, SHUTDOWN, SHOW"; SQL statement:
+status VARCHAR(50) NOT NULL, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_copies_book FOREIGN KEY (bookId) REFERENCES Book(id)"; SQL statement:
+CONSTRAINT fk_copies_book FOREIGN KEY (bookId) REFERENCES Book(id) [42000-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Librarian ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Librarian ( [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]memberId INT NOT NULL,"; expected "MERGE"; SQL statement:
+memberId INT NOT NULL, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]employmentDate DATE NOT NULL,"; expected "EXPLAIN, EXECUTE"; SQL statement:
+employmentDate DATE NOT NULL, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]position VARCHAR(255) NOT NULL,"; expected "PREPARE"; SQL statement:
+position VARCHAR(255) NOT NULL, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_librarians_user FOREIGN KEY (memberId) REFERENCES Member(id)"; SQL statement:
+CONSTRAINT fk_librarians_user FOREIGN KEY (memberId) REFERENCES Member(id) [42000-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Borrowing ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Borrowing ( [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]memberId INT NOT NULL,"; expected "MERGE"; SQL statement:
+memberId INT NOT NULL, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]copyId INT NOT NULL,"; expected "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT"; SQL statement:
+copyId INT NOT NULL, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]borrowDate DATE NOT NULL,"; expected "BACKUP, BEGIN"; SQL statement:
+borrowDate DATE NOT NULL, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]returnDate DATE,"; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REFRESH"; SQL statement:
+returnDate DATE, [42001-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_borrowings_user FOREIGN KEY (memberId) REFERENCES Member(id),"; SQL statement:
+CONSTRAINT fk_borrowings_user FOREIGN KEY (memberId) REFERENCES Member(id), [42000-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_borrowings_copy FOREIGN KEY (copyId) REFERENCES Copy(id)"; SQL statement:
+CONSTRAINT fk_borrowings_copy FOREIGN KEY (copyId) REFERENCES Copy(id) [42000-220]
+2025-01-20 21:46:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Publisher ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Publisher ( [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]name VARCHAR(255) NOT NULL,"; SQL statement:
+name VARCHAR(255) NOT NULL, [42000-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]address VARCHAR(255) NOT NULL,"; expected "ALTER, ANALYZE"; SQL statement:
+address VARCHAR(255) NOT NULL, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]phoneNumber VARCHAR(50) NOT NULL"; expected "PREPARE"; SQL statement:
+phoneNumber VARCHAR(50) NOT NULL [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Member ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Member ( [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]name VARCHAR(255) NOT NULL,"; SQL statement:
+name VARCHAR(255) NOT NULL, [42000-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]email VARCHAR(255) NOT NULL UNIQUE,"; expected "EXPLAIN, EXECUTE"; SQL statement:
+email VARCHAR(255) NOT NULL UNIQUE, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]phoneNumber VARCHAR(50) NOT NULL,"; expected "PREPARE"; SQL statement:
+phoneNumber VARCHAR(50) NOT NULL, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]address VARCHAR(255) NOT NULL"; expected "ALTER, ANALYZE"; SQL statement:
+address VARCHAR(255) NOT NULL [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Book ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Book ( [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]title VARCHAR(255) NOT NULL,"; expected "TRUNCATE"; SQL statement:
+title VARCHAR(255) NOT NULL, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]author VARCHAR(255) NOT NULL,"; expected "ALTER, ANALYZE"; SQL statement:
+author VARCHAR(255) NOT NULL, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]publisherId INT NOT NULL,"; expected "PREPARE"; SQL statement:
+publisherId INT NOT NULL, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]publicationYear INT NOT NULL,"; expected "PREPARE"; SQL statement:
+publicationYear INT NOT NULL, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]isbn VARCHAR(50) NOT NULL UNIQUE,"; expected "INSERT"; SQL statement:
+isbn VARCHAR(50) NOT NULL UNIQUE, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_books_publisher FOREIGN KEY (publisherId) REFERENCES Publisher(id)"; SQL statement:
+CONSTRAINT fk_books_publisher FOREIGN KEY (publisherId) REFERENCES Publisher(id) [42000-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Copy ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Copy ( [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]bookId INT NOT NULL,"; expected "BACKUP, BEGIN"; SQL statement:
+bookId INT NOT NULL, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]copyNumber INT NOT NULL,"; expected "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT"; SQL statement:
+copyNumber INT NOT NULL, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]status VARCHAR(50) NOT NULL,"; expected "SAVEPOINT, SCRIPT, SHUTDOWN, SHOW"; SQL statement:
+status VARCHAR(50) NOT NULL, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_copies_book FOREIGN KEY (bookId) REFERENCES Book(id)"; SQL statement:
+CONSTRAINT fk_copies_book FOREIGN KEY (bookId) REFERENCES Book(id) [42000-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Librarian ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Librarian ( [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]memberId INT NOT NULL,"; expected "MERGE"; SQL statement:
+memberId INT NOT NULL, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]employmentDate DATE NOT NULL,"; expected "EXPLAIN, EXECUTE"; SQL statement:
+employmentDate DATE NOT NULL, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]position VARCHAR(255) NOT NULL,"; expected "PREPARE"; SQL statement:
+position VARCHAR(255) NOT NULL, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_librarians_user FOREIGN KEY (memberId) REFERENCES Member(id)"; SQL statement:
+CONSTRAINT fk_librarians_user FOREIGN KEY (memberId) REFERENCES Member(id) [42000-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Borrowing ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Borrowing ( [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]memberId INT NOT NULL,"; expected "MERGE"; SQL statement:
+memberId INT NOT NULL, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]copyId INT NOT NULL,"; expected "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT"; SQL statement:
+copyId INT NOT NULL, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]borrowDate DATE NOT NULL,"; expected "BACKUP, BEGIN"; SQL statement:
+borrowDate DATE NOT NULL, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]returnDate DATE,"; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REFRESH"; SQL statement:
+returnDate DATE, [42001-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_borrowings_user FOREIGN KEY (memberId) REFERENCES Member(id),"; SQL statement:
+CONSTRAINT fk_borrowings_user FOREIGN KEY (memberId) REFERENCES Member(id), [42000-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_borrowings_copy FOREIGN KEY (copyId) REFERENCES Copy(id)"; SQL statement:
+CONSTRAINT fk_borrowings_copy FOREIGN KEY (copyId) REFERENCES Copy(id) [42000-220]
+2025-01-20 21:46:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:46:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-220]
+2025-01-20 20:46:47 jdbc[5]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1573)
+	at com.intellij.database.remote.jdbc.impl.RemoteConnectionImpl.setClientInfo(RemoteConnectionImpl.java:469)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Publisher ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Publisher ( [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]name VARCHAR(255) NOT NULL,"; SQL statement:
+name VARCHAR(255) NOT NULL, [42000-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]address VARCHAR(255) NOT NULL,"; expected "ALTER, ANALYZE"; SQL statement:
+address VARCHAR(255) NOT NULL, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]phoneNumber VARCHAR(50) NOT NULL"; expected "PREPARE"; SQL statement:
+phoneNumber VARCHAR(50) NOT NULL [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Member ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Member ( [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]name VARCHAR(255) NOT NULL,"; SQL statement:
+name VARCHAR(255) NOT NULL, [42000-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]email VARCHAR(255) NOT NULL UNIQUE,"; expected "EXPLAIN, EXECUTE"; SQL statement:
+email VARCHAR(255) NOT NULL UNIQUE, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]phoneNumber VARCHAR(50) NOT NULL,"; expected "PREPARE"; SQL statement:
+phoneNumber VARCHAR(50) NOT NULL, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]address VARCHAR(255) NOT NULL"; expected "ALTER, ANALYZE"; SQL statement:
+address VARCHAR(255) NOT NULL [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Book ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Book ( [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]title VARCHAR(255) NOT NULL,"; expected "TRUNCATE"; SQL statement:
+title VARCHAR(255) NOT NULL, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]author VARCHAR(255) NOT NULL,"; expected "ALTER, ANALYZE"; SQL statement:
+author VARCHAR(255) NOT NULL, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]publisherId INT NOT NULL,"; expected "PREPARE"; SQL statement:
+publisherId INT NOT NULL, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]publicationYear INT NOT NULL,"; expected "PREPARE"; SQL statement:
+publicationYear INT NOT NULL, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]isbn VARCHAR(50) NOT NULL UNIQUE,"; expected "INSERT"; SQL statement:
+isbn VARCHAR(50) NOT NULL UNIQUE, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_books_publisher FOREIGN KEY (publisherId) REFERENCES Publisher(id)"; SQL statement:
+CONSTRAINT fk_books_publisher FOREIGN KEY (publisherId) REFERENCES Publisher(id) [42000-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Copy ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Copy ( [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]bookId INT NOT NULL,"; expected "BACKUP, BEGIN"; SQL statement:
+bookId INT NOT NULL, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]copyNumber INT NOT NULL,"; expected "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT"; SQL statement:
+copyNumber INT NOT NULL, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]status VARCHAR(50) NOT NULL,"; expected "SAVEPOINT, SCRIPT, SHUTDOWN, SHOW"; SQL statement:
+status VARCHAR(50) NOT NULL, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_copies_book FOREIGN KEY (bookId) REFERENCES Book(id)"; SQL statement:
+CONSTRAINT fk_copies_book FOREIGN KEY (bookId) REFERENCES Book(id) [42000-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Librarian ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Librarian ( [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]memberId INT NOT NULL,"; expected "MERGE"; SQL statement:
+memberId INT NOT NULL, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]employmentDate DATE NOT NULL,"; expected "EXPLAIN, EXECUTE"; SQL statement:
+employmentDate DATE NOT NULL, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]position VARCHAR(255) NOT NULL,"; expected "PREPARE"; SQL statement:
+position VARCHAR(255) NOT NULL, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_librarians_user FOREIGN KEY (memberId) REFERENCES Member(id)"; SQL statement:
+CONSTRAINT fk_librarians_user FOREIGN KEY (memberId) REFERENCES Member(id) [42000-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Borrowing ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Borrowing ( [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]memberId INT NOT NULL,"; expected "MERGE"; SQL statement:
+memberId INT NOT NULL, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]copyId INT NOT NULL,"; expected "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT"; SQL statement:
+copyId INT NOT NULL, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]borrowDate DATE NOT NULL,"; expected "BACKUP, BEGIN"; SQL statement:
+borrowDate DATE NOT NULL, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]returnDate DATE,"; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REFRESH"; SQL statement:
+returnDate DATE, [42001-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_borrowings_user FOREIGN KEY (memberId) REFERENCES Member(id),"; SQL statement:
+CONSTRAINT fk_borrowings_user FOREIGN KEY (memberId) REFERENCES Member(id), [42000-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_borrowings_copy FOREIGN KEY (copyId) REFERENCES Copy(id)"; SQL statement:
+CONSTRAINT fk_borrowings_copy FOREIGN KEY (copyId) REFERENCES Copy(id) [42000-220]
+2025-01-20 21:46:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:47:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-220]
+2025-01-20 21:48:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-220]
+2025-01-20 20:49:04 jdbc[6]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1573)
+	at com.intellij.database.remote.jdbc.impl.RemoteConnectionImpl.setClientInfo(RemoteConnectionImpl.java:469)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-01-20 20:49:04 jdbc[7]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1573)
+	at com.intellij.database.remote.jdbc.impl.RemoteConnectionImpl.setClientInfo(RemoteConnectionImpl.java:469)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Publisher ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Publisher ( [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]name VARCHAR(255) NOT NULL,"; SQL statement:
+name VARCHAR(255) NOT NULL, [42000-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]address VARCHAR(255) NOT NULL,"; expected "ALTER, ANALYZE"; SQL statement:
+address VARCHAR(255) NOT NULL, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]phoneNumber VARCHAR(50) NOT NULL"; expected "PREPARE"; SQL statement:
+phoneNumber VARCHAR(50) NOT NULL [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Member ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Member ( [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]name VARCHAR(255) NOT NULL,"; SQL statement:
+name VARCHAR(255) NOT NULL, [42000-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]email VARCHAR(255) NOT NULL UNIQUE,"; expected "EXPLAIN, EXECUTE"; SQL statement:
+email VARCHAR(255) NOT NULL UNIQUE, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]phoneNumber VARCHAR(50) NOT NULL,"; expected "PREPARE"; SQL statement:
+phoneNumber VARCHAR(50) NOT NULL, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]address VARCHAR(255) NOT NULL"; expected "ALTER, ANALYZE"; SQL statement:
+address VARCHAR(255) NOT NULL [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Book ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Book ( [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]title VARCHAR(255) NOT NULL,"; expected "TRUNCATE"; SQL statement:
+title VARCHAR(255) NOT NULL, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]author VARCHAR(255) NOT NULL,"; expected "ALTER, ANALYZE"; SQL statement:
+author VARCHAR(255) NOT NULL, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]publisherId INT NOT NULL,"; expected "PREPARE"; SQL statement:
+publisherId INT NOT NULL, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]publicationYear INT NOT NULL,"; expected "PREPARE"; SQL statement:
+publicationYear INT NOT NULL, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]isbn VARCHAR(50) NOT NULL UNIQUE,"; expected "INSERT"; SQL statement:
+isbn VARCHAR(50) NOT NULL UNIQUE, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_books_publisher FOREIGN KEY (publisherId) REFERENCES Publisher(id)"; SQL statement:
+CONSTRAINT fk_books_publisher FOREIGN KEY (publisherId) REFERENCES Publisher(id) [42000-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Copy ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Copy ( [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]bookId INT NOT NULL,"; expected "BACKUP, BEGIN"; SQL statement:
+bookId INT NOT NULL, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]copyNumber INT NOT NULL,"; expected "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT"; SQL statement:
+copyNumber INT NOT NULL, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]status VARCHAR(50) NOT NULL,"; expected "SAVEPOINT, SCRIPT, SHUTDOWN, SHOW"; SQL statement:
+status VARCHAR(50) NOT NULL, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_copies_book FOREIGN KEY (bookId) REFERENCES Book(id)"; SQL statement:
+CONSTRAINT fk_copies_book FOREIGN KEY (bookId) REFERENCES Book(id) [42000-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Librarian ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Librarian ( [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]memberId INT NOT NULL,"; expected "MERGE"; SQL statement:
+memberId INT NOT NULL, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]employmentDate DATE NOT NULL,"; expected "EXPLAIN, EXECUTE"; SQL statement:
+employmentDate DATE NOT NULL, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]position VARCHAR(255) NOT NULL,"; expected "PREPARE"; SQL statement:
+position VARCHAR(255) NOT NULL, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_librarians_user FOREIGN KEY (memberId) REFERENCES Member(id)"; SQL statement:
+CONSTRAINT fk_librarians_user FOREIGN KEY (memberId) REFERENCES Member(id) [42000-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Borrowing ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Borrowing ( [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]memberId INT NOT NULL,"; expected "MERGE"; SQL statement:
+memberId INT NOT NULL, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]copyId INT NOT NULL,"; expected "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT"; SQL statement:
+copyId INT NOT NULL, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]borrowDate DATE NOT NULL,"; expected "BACKUP, BEGIN"; SQL statement:
+borrowDate DATE NOT NULL, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]returnDate DATE,"; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REFRESH"; SQL statement:
+returnDate DATE, [42001-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_borrowings_user FOREIGN KEY (memberId) REFERENCES Member(id),"; SQL statement:
+CONSTRAINT fk_borrowings_user FOREIGN KEY (memberId) REFERENCES Member(id), [42000-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_borrowings_copy FOREIGN KEY (copyId) REFERENCES Copy(id)"; SQL statement:
+CONSTRAINT fk_borrowings_copy FOREIGN KEY (copyId) REFERENCES Copy(id) [42000-220]
+2025-01-20 21:49:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:49:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-220]
+2025-01-20 21:53:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-220]
+2025-01-20 21:54:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-220]
+2025-01-20 21:54:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-220]
+2025-01-20 21:55:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-220]
+2025-01-20 21:56:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-220]
+2025-01-20 21:57:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-220]
+2025-01-20 21:57:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Publisher ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Publisher ( [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]name VARCHAR(255) NOT NULL,"; SQL statement:
+name VARCHAR(255) NOT NULL, [42000-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]address VARCHAR(255) NOT NULL,"; expected "ALTER, ANALYZE"; SQL statement:
+address VARCHAR(255) NOT NULL, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]phoneNumber VARCHAR(50) NOT NULL"; expected "PREPARE"; SQL statement:
+phoneNumber VARCHAR(50) NOT NULL [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Member ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Member ( [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]name VARCHAR(255) NOT NULL,"; SQL statement:
+name VARCHAR(255) NOT NULL, [42000-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]email VARCHAR(255) NOT NULL UNIQUE,"; expected "EXPLAIN, EXECUTE"; SQL statement:
+email VARCHAR(255) NOT NULL UNIQUE, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]phoneNumber VARCHAR(50) NOT NULL,"; expected "PREPARE"; SQL statement:
+phoneNumber VARCHAR(50) NOT NULL, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]address VARCHAR(255) NOT NULL"; expected "ALTER, ANALYZE"; SQL statement:
+address VARCHAR(255) NOT NULL [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Book ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Book ( [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]title VARCHAR(255) NOT NULL,"; expected "TRUNCATE"; SQL statement:
+title VARCHAR(255) NOT NULL, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]author VARCHAR(255) NOT NULL,"; expected "ALTER, ANALYZE"; SQL statement:
+author VARCHAR(255) NOT NULL, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]publisherId INT NOT NULL,"; expected "PREPARE"; SQL statement:
+publisherId INT NOT NULL, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]publicationYear INT NOT NULL,"; expected "PREPARE"; SQL statement:
+publicationYear INT NOT NULL, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]isbn VARCHAR(50) NOT NULL UNIQUE,"; expected "INSERT"; SQL statement:
+isbn VARCHAR(50) NOT NULL UNIQUE, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_books_publisher FOREIGN KEY (publisherId) REFERENCES Publisher(id)"; SQL statement:
+CONSTRAINT fk_books_publisher FOREIGN KEY (publisherId) REFERENCES Publisher(id) [42000-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Copy ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Copy ( [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]bookId INT NOT NULL,"; expected "BACKUP, BEGIN"; SQL statement:
+bookId INT NOT NULL, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]copyNumber INT NOT NULL,"; expected "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT"; SQL statement:
+copyNumber INT NOT NULL, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]status VARCHAR(50) NOT NULL,"; expected "SAVEPOINT, SCRIPT, SHUTDOWN, SHOW"; SQL statement:
+status VARCHAR(50) NOT NULL, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_copies_book FOREIGN KEY (bookId) REFERENCES Book(id)"; SQL statement:
+CONSTRAINT fk_copies_book FOREIGN KEY (bookId) REFERENCES Book(id) [42000-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Librarian ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Librarian ( [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]memberId INT NOT NULL,"; expected "MERGE"; SQL statement:
+memberId INT NOT NULL, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]employmentDate DATE NOT NULL,"; expected "EXPLAIN, EXECUTE"; SQL statement:
+employmentDate DATE NOT NULL, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]position VARCHAR(255) NOT NULL,"; expected "PREPARE"; SQL statement:
+position VARCHAR(255) NOT NULL, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_librarians_user FOREIGN KEY (memberId) REFERENCES Member(id)"; SQL statement:
+CONSTRAINT fk_librarians_user FOREIGN KEY (memberId) REFERENCES Member(id) [42000-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Borrowing ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE Borrowing ( [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,"; expected "INSERT"; SQL statement:
+id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]memberId INT NOT NULL,"; expected "MERGE"; SQL statement:
+memberId INT NOT NULL, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]copyId INT NOT NULL,"; expected "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT"; SQL statement:
+copyId INT NOT NULL, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]borrowDate DATE NOT NULL,"; expected "BACKUP, BEGIN"; SQL statement:
+borrowDate DATE NOT NULL, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]returnDate DATE,"; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REFRESH"; SQL statement:
+returnDate DATE, [42001-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_borrowings_user FOREIGN KEY (memberId) REFERENCES Member(id),"; SQL statement:
+CONSTRAINT fk_borrowings_user FOREIGN KEY (memberId) REFERENCES Member(id), [42000-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CONSTRAINT fk_borrowings_copy FOREIGN KEY (copyId) REFERENCES Copy(id)"; SQL statement:
+CONSTRAINT fk_borrowings_copy FOREIGN KEY (copyId) REFERENCES Copy(id) [42000-220]
+2025-01-20 21:58:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-220]
+2025-01-20 21:58:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-220]
+2025-01-20 22:04:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-220]
+2025-01-20 21:09:14 jdbc[3]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1573)
+	at com.intellij.database.remote.jdbc.impl.RemoteConnectionImpl.setClientInfo(RemoteConnectionImpl.java:469)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-01-20 21:09:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PUBLISHER" already exists; SQL statement:
+CREATE TABLE Publisher (
+                           id INT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+                           name VARCHAR(255) NOT NULL,
+                           address VARCHAR(255) NOT NULL,
+                           phoneNumber VARCHAR(50) NOT NULL
+) [42101-220]
+2025-01-20 21:09:14 jdbc[4]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1573)
+	at com.intellij.database.remote.jdbc.impl.RemoteConnectionImpl.setClientInfo(RemoteConnectionImpl.java:469)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-01-20 21:09:49 jdbc[5]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1573)
+	at com.intellij.database.remote.jdbc.impl.RemoteConnectionImpl.setClientInfo(RemoteConnectionImpl.java:469)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
