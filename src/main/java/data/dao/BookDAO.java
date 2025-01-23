@@ -1,8 +1,9 @@
 package data.dao;
 
 import data.annotations.Display;
-import data.dependencies.DAO;
 import data.entities.Book;
+import org.hibernate.Session;
+import utils.HibernateUtil;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
@@ -37,5 +38,15 @@ public class BookDAO extends DAO<Book> {
     @Override
     protected Class<Book> getEntityClass() {
         return Book.class;
+    }
+
+    public long getActiveBorrowingsCount(int bookId) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.createQuery(
+                            "SELECT COUNT(b) FROM Borrowing b WHERE b.copy.book.id = :bookId AND b.returnDate IS NULL",
+                            Long.class)
+                    .setParameter("bookId", bookId)
+                    .getSingleResult();
+        }
     }
 }

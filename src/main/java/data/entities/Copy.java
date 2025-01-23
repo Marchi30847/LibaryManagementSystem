@@ -1,6 +1,7 @@
 package data.entities;
 
 import data.annotations.Display;
+import data.annotations.MatchPattern;
 import jakarta.persistence.*;
 
 /**
@@ -36,7 +37,8 @@ public class Copy {
      * This field cannot be null.
      */
     @Display
-    @Column(nullable = false)
+    @MatchPattern(value = "^\\d{5}$")
+    @Column(nullable = false, unique = true)
     private int copyNumber;
 
     /**

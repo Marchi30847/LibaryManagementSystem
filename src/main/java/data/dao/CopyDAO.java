@@ -1,7 +1,6 @@
 package data.dao;
 
 import data.annotations.Display;
-import data.dependencies.DAO;
 import data.entities.Copy;
 
 import java.lang.reflect.Field;

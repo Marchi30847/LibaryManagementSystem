@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="45ff2172-57e0-4a08-87f6-f87ef16f1af4">
+    <data-source source="LOCAL" name="myDB" uuid="e902c413-1fcd-4992-a230-a3cf3d740872">
       <driver-ref>h2.unified</driver-ref>
       <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>Hibernate
-
-/Users/yurimarchenko/IdeaProjects/LibaryManagementSystem/src/main/resources/hibernate.cfg.xml</remarks>
       <jdbc-driver>org.h2.Driver</jdbc-driver>
-      <jdbc-url>jdbc:h2:file:./dbResource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MV_STORE=false</jdbc-url>
+      <jdbc-url>jdbc:h2:$PROJECT_DIR$/dbResource/myDB</jdbc-url>
       <jdbc-additional-properties>
         <property name="com.intellij.clouds.kubernetes.db.host.port" />
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />

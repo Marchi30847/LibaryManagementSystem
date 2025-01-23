@@ -1,6 +1,7 @@
 package data.entities;
 
 import data.annotations.Display;
+import data.annotations.MatchPattern;
 import jakarta.persistence.*;
 
 /**
@@ -33,6 +34,7 @@ public class Member {
      * This field cannot be null and must be unique.
      */
     @Display
+    @MatchPattern(value = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")
     @Column(nullable = false, unique = true)
     private String email;
 

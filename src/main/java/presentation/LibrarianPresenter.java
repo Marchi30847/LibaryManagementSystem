@@ -1,11 +1,11 @@
 package presentation;
 
+import data.annotations.Display;
 import data.constants.Tables;
 import data.dependencies.LibrarianContract;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Temporal;
 
-import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -63,6 +63,7 @@ public class LibrarianPresenter implements LibrarianContract.Presenter {
 
             Arrays.stream(entityClass.getDeclaredFields())
                     .filter(field ->
+                            field.isAnnotationPresent(Display.class) &&
                             !field.isAnnotationPresent(GeneratedValue.class) &&
                             !field.isAnnotationPresent(Temporal.class))
 
@@ -98,13 +99,7 @@ public class LibrarianPresenter implements LibrarianContract.Presenter {
                 return;
             }
 
-            int idColumnIndex = -1;
-            for (int i = 0; i < view.getColumnCount(); i++) {
-                if ("id".equalsIgnoreCase(view.getColumnName(i))) {
-                    idColumnIndex = i;
-                    break;
-                }
-            }
+            int idColumnIndex = getColumnIndex("id");
 
             if (idColumnIndex == -1) {
                 throw new IllegalStateException("ID column not found.");
@@ -132,22 +127,17 @@ public class LibrarianPresenter implements LibrarianContract.Presenter {
                 return;
             }
 
-            int idColumnIndex = -1;
-            for (int i = 0; i < view.getColumnCount(); i++) {
-                if ("id".equalsIgnoreCase(view.getColumnName(i))) {
-                    idColumnIndex = i;
-                    break;
-                }
-            }
-
+            int idColumnIndex = getColumnIndex("id");
             if (idColumnIndex == -1) {
                 throw new IllegalStateException("ID column not found.");
             }
 
+            //todo сделать что-то с тем что по рефлекшину берутся поля которых нет в таблице
             int id = Integer.parseInt(view.getValueAt(selectedRow, idColumnIndex));
 
             Map<String, Object> fieldValues = new HashMap<>();
             Arrays.stream(entityClass.getDeclaredFields())
+                    .filter(field -> field.isAnnotationPresent(Display.class))
                     .filter(field -> !field.isAnnotationPresent(GeneratedValue.class))
                     .peek(field -> field.setAccessible(true))
                     .forEach(field -> {

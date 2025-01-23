@@ -1,13 +1,15 @@
 package domain;
 
+import data.annotations.MatchPattern;
 import data.dao.*;
-import data.dependencies.DAO;
+import data.dao.DAO;
 import data.dependencies.LibrarianContract;
 import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Temporal;
 
 import java.lang.reflect.Field;
+import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -57,8 +59,6 @@ public class LibrarianModel implements LibrarianContract.Model {
     public <T> String[][] getData(Class<T> entityClass) {
         DAO<?> dao = DAOFactory.getDAO(entityClass);
         List<?> entities = dao.getAll();
-        BookDAO bookDAO = new BookDAO();
-        System.out.println(bookDAO.getAll().toString());
         List<String> columnNames = dao.getColumnNames();
         return mapEntitiesToColumns(columnNames, entities);
     }
@@ -76,6 +76,15 @@ public class LibrarianModel implements LibrarianContract.Model {
 
                         if (!isFieldNullable(field) && (value == null || value.toString().trim().isEmpty())) {
                             throw new IllegalArgumentException("Field " + field.getName() + " cannot be null or empty.");
+                        }
+
+                        if (field.isAnnotationPresent(MatchPattern.class) && value != null) {
+                            String pattern = field.getAnnotation(MatchPattern.class).value();
+                            if (!value.toString().matches(pattern)) {
+                                throw new IllegalArgumentException(String.format(
+                                        "Field '%s' must match the pattern: %s", field.getName(), pattern
+                                ));
+                            }
                         }
 
                         try {
@@ -143,6 +152,15 @@ public class LibrarianModel implements LibrarianContract.Model {
                     Object value = fieldData.get(field.getName());
                     if (!isFieldNullable(field) && (value == null || value.toString().trim().isEmpty())) {
                         throw new IllegalArgumentException("Field " + field.getName() + " cannot be null or empty.");
+                    }
+
+                    if (field.isAnnotationPresent(MatchPattern.class) && value != null) {
+                        String pattern = field.getAnnotation(MatchPattern.class).value();
+                        if (!value.toString().matches(pattern)) {
+                            throw new IllegalArgumentException(String.format(
+                                    "Field '%s' must match the pattern: %s", field.getName(), pattern
+                            ));
+                        }
                     }
 
                     try {

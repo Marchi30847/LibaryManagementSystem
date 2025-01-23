@@ -1,7 +1,6 @@
 package data.dao;
 
 import data.annotations.Display;
-import data.dependencies.DAO;
 import data.entities.Publisher;
 
 import java.lang.reflect.Field;

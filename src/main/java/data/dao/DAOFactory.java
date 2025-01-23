@@ -1,6 +1,5 @@
 package data.dao;
 
-import data.dependencies.DAO;
 import data.entities.*;
 
 public class DAOFactory {

@@ -1,4 +1,4 @@
-package data.dependencies;
+package data.dao;
 
 import utils.HibernateUtil;
 import org.hibernate.Session;
@@ -53,22 +53,6 @@ public abstract class DAO<T> {
     public T getById(int id) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.get(getEntityClass(), id);
-        }
-    }
-
-    /**
-     * Retrieves an entity by its row index.
-     *
-     * @param rowIndex The row index of the entity in the result list.
-     * @return The entity at the specified row index.
-     * @throws IllegalArgumentException If the row index is invalid.
-     */
-    public T getByRow(int rowIndex) {
-        List<T> entities = getAll();
-        if (rowIndex >= 0 && rowIndex < entities.size()) {
-            return entities.get(rowIndex);
-        } else {
-            throw new IllegalArgumentException("Invalid row index: " + rowIndex);
         }
     }
 

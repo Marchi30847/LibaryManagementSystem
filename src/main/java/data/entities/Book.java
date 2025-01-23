@@ -1,6 +1,7 @@
 package data.entities;
 
 import data.annotations.Display;
+import data.annotations.MatchPattern;
 import jakarta.persistence.*;
 
 /**
@@ -61,6 +62,7 @@ public class Book {
      * This field cannot be null and must be unique.
      */
     @Display
+    @MatchPattern("^\\d{3}-\\d{10}$")
     @Column(nullable = false, unique = true)
     private String isbn;
 

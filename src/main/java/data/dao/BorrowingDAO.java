@@ -1,8 +1,9 @@
 package data.dao;
 
 import data.annotations.Display;
-import data.dependencies.DAO;
 import data.entities.Borrowing;
+import org.hibernate.Session;
+import utils.HibernateUtil;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
@@ -37,5 +38,13 @@ public class BorrowingDAO extends DAO<Borrowing> {
     @Override
     protected Class<Borrowing> getEntityClass() {
         return Borrowing.class;
+    }
+
+    public List<Borrowing> getBorrowingsByUserId(int userId) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.createQuery("FROM Borrowing WHERE user.id = :userId", Borrowing.class)
+                    .setParameter("userId", userId)
+                    .list();
+        }
     }
 }
