@@ -12,7 +12,6 @@ import java.util.List;
  * Extends the generic {@link DAO} class to perform CRUD operations on Member entities.
  */
 public class MemberDAO extends DAO<Member> {
-    //todo добавить чеки мейла
     /**
      * Retrieves the column names for the Member entity.
      * This method uses reflection to find fields that are annotated with {@link Display}.

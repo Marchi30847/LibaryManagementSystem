@@ -64,9 +64,8 @@ public class LibrarianPresenter implements LibrarianContract.Presenter {
             Arrays.stream(entityClass.getDeclaredFields())
                     .filter(field ->
                             field.isAnnotationPresent(Display.class) &&
-                            !field.isAnnotationPresent(GeneratedValue.class) &&
-                            !field.isAnnotationPresent(Temporal.class))
-
+                                    !field.isAnnotationPresent(GeneratedValue.class) &&
+                                    !field.isAnnotationPresent(Temporal.class))
                     .peek(field -> field.setAccessible(true))
                     .forEach(field -> {
                         try {
@@ -120,7 +119,7 @@ public class LibrarianPresenter implements LibrarianContract.Presenter {
      */
     private ActionListener createUpdateTitleButtonListener() {
         return _ -> {
-           Class<?> entityClass = view.getCurrentTable().getEntityClass();
+            Class<?> entityClass = view.getCurrentTable().getEntityClass();
             int selectedRow = view.getCurrentSelectedRow();
             if (selectedRow == -1) {
                 view.createErrorDialog("Error", "No row selected.");
@@ -132,7 +131,6 @@ public class LibrarianPresenter implements LibrarianContract.Presenter {
                 throw new IllegalStateException("ID column not found.");
             }
 
-            //todo сделать что-то с тем что по рефлекшину берутся поля которых нет в таблице
             int id = Integer.parseInt(view.getValueAt(selectedRow, idColumnIndex));
 
             Map<String, Object> fieldValues = new HashMap<>();
@@ -156,6 +154,12 @@ public class LibrarianPresenter implements LibrarianContract.Presenter {
         };
     }
 
+    /**
+     * Gets the column index for a specified column name.
+     *
+     * @param columnName the name of the column
+     * @return the index of the column, or -1 if the column is not found
+     */
     private int getColumnIndex(String columnName) {
         for (int i = 0; i < view.getColumnCount(); i++) {
             if (view.getColumnName(i).equalsIgnoreCase(columnName)) {
@@ -165,6 +169,9 @@ public class LibrarianPresenter implements LibrarianContract.Presenter {
         return -1;
     }
 
+    /**
+     * Refreshes all the tables in the view by fetching the latest data from the model.
+     */
     @Override
     public void refreshAll() {
         for (Tables table : Tables.values()) {
@@ -172,6 +179,11 @@ public class LibrarianPresenter implements LibrarianContract.Presenter {
         }
     }
 
+    /**
+     * Refreshes a specific table in the view.
+     *
+     * @param table the table to refresh
+     */
     private void refreshTable(Tables table) {
         String[][] data = model.getData(table.getEntityClass());
         String[] columns = data[0];

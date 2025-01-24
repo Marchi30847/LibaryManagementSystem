@@ -153,10 +153,14 @@ public class LibrarianView extends JPanel implements LibrarianContract.View {
         add(buttonPanel, BorderLayout.SOUTH);
     }
 
+    /**
+     * Adds a listener to detect when the tab in the tabbed pane has been changed.
+     * Based on the selected tab index, the current table is set to the appropriate table type.
+     */
     @Override
     public void addTabChangedListener() {
         // Listener to detect when the tab has changed
-        tabbedPane.addChangeListener(e -> {
+        tabbedPane.addChangeListener(_ -> {
             int selectedIndex = tabbedPane.getSelectedIndex();
             switch (selectedIndex) {
                 case 0 -> currentTable = Tables.BOOK;
@@ -170,6 +174,13 @@ public class LibrarianView extends JPanel implements LibrarianContract.View {
         });
     }
 
+    /**
+     * Updates the table model for the specified table type with the given column names and data rows.
+     *
+     * @param tableType the type of table to update (e.g., BOOK, BORROWING, COPY, etc.)
+     * @param columns   the column names to be displayed in the table
+     * @param rows      the data rows to be displayed in the table
+     */
     @Override
     public void updateTableModel(Tables tableType, String[] columns, String[][] rows) {
         TablePanel tablePanel = tablePanels.get(tableType);
@@ -180,61 +191,127 @@ public class LibrarianView extends JPanel implements LibrarianContract.View {
         }
     }
 
+    /**
+     * Creates and displays an input dialog that prompts the user to enter a value.
+     *
+     * @param title       the title of the input dialog
+     * @param initialValue the initial value to be displayed in the input field
+     * @return the user input as a String
+     */
     @Override
     public String createInputDialog(String title, String initialValue) {
         return JOptionPane.showInputDialog(title, initialValue);
     }
 
+    /**
+     * Creates and displays an error dialog with a specified message.
+     *
+     * @param title   the title of the error dialog
+     * @param message the error message to be displayed
+     */
     @Override
     public void createErrorDialog(String title, String message) {
         JOptionPane.showMessageDialog(null, message, title, JOptionPane.ERROR_MESSAGE);
     }
 
+    /**
+     * Returns the current table type that is selected.
+     *
+     * @return the current table type (e.g., BOOK, BORROWING, COPY, etc.)
+     */
     @Override
     public Tables getCurrentTable() {
         return currentTable;
     }
 
+    /**
+     * Retrieves the value from the specified cell in the currently selected table.
+     *
+     * @param row    the row index of the cell
+     * @param column the column index of the cell
+     * @return the value at the specified cell as a String
+     */
     @Override
     public String getValueAt(int row, int column) {
         return tablePanels.get(currentTable).getTable().getValueAt(row, column).toString();
     }
 
+    /**
+     * Returns the index of the currently selected row in the table.
+     *
+     * @return the index of the selected row
+     */
     @Override
     public int getCurrentSelectedRow() {
         return tablePanels.get(currentTable).getTable().getSelectedRow();
     }
 
+    /**
+     * Returns the index of the currently selected column in the table.
+     *
+     * @return the index of the selected column
+     */
     @Override
     public int getCurrentSelectedColumn() {
         return tablePanels.get(currentTable).getTable().getSelectedColumn();
     }
 
+    /**
+     * Returns the number of columns in the currently selected table.
+     *
+     * @return the number of columns in the table
+     */
     @Override
     public int getColumnCount() {
         return tablePanels.get(currentTable).getTable().getColumnCount();
     }
 
+    /**
+     * Returns the number of rows in the currently selected table.
+     *
+     * @return the number of rows in the table
+     */
     @Override
     public int getRowCount() {
         return tablePanels.get(currentTable).getTable().getRowCount();
     }
 
+    /**
+     * Retrieves the name of a column in the currently selected table based on the specified column index.
+     *
+     * @param columnIndex the index of the column
+     * @return the name of the column at the specified index
+     */
     @Override
     public String getColumnName(int columnIndex) {
         return tablePanels.get(currentTable).getTable().getColumnName(columnIndex);
     }
 
+    /**
+     * Adds a listener to the insert button to handle insert actions.
+     *
+     * @param listener the ActionListener to be added to the insert button
+     */
     @Override
     public void addInsertButtonListener(ActionListener listener) {
         insertButton.addActionListener(listener);
     }
 
+    /**
+     * Adds a listener to the delete button to handle delete actions.
+     *
+     * @param listener the ActionListener to be added to the delete button
+     */
     @Override
     public void addDeleteButtonListener(ActionListener listener) {
         deleteButton.addActionListener(listener);
     }
 
+    /**
+     * Adds a listener to the update button to handle update actions.
+     *
+     * @param listener the ActionListener to be added to the update button
+     */
     @Override
     public void addUpdateButtonListener(ActionListener listener) {
         updateButton.addActionListener(listener);

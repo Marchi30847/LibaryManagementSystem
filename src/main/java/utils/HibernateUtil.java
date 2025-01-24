@@ -16,7 +16,11 @@ public class HibernateUtil {
 
     // A singleton SessionFactory instance that is initialized once.
     private static final SessionFactory sessionFactory = buildSessionFactory();
+    private static final SessionFactory testSessionFactory = buildTestSessionFactory();
 
+    private static boolean testMode = false;
+
+    private HibernateUtil() {}
     /**
      * Builds the SessionFactory from the Hibernate configuration file.
      * <p>
@@ -39,6 +43,17 @@ public class HibernateUtil {
         }
     }
 
+    private static SessionFactory buildTestSessionFactory() {
+        try {
+            // Configures and builds the SessionFactory from hibernate.cfg.xml
+            return new Configuration().configure("hibernate-test.cfg.xml").buildSessionFactory();
+        } catch (Throwable ex) {
+            // Logs the error and throws an exception to indicate failure
+            System.err.println("SessionFactory creation failed: " + ex.getMessage());
+            throw new ExceptionInInitializerError("Failed to create SessionFactory: " + ex);
+        }
+    }
+
     /**
      * Provides access to the singleton SessionFactory instance.
      * <p>
@@ -49,9 +64,12 @@ public class HibernateUtil {
      * @return the SessionFactory instance
      */
     public static SessionFactory getSessionFactory() {
-        return sessionFactory;
+        return testMode ? testSessionFactory : sessionFactory;
     }
 
+    public static void setTestMode(boolean testMode) {
+        HibernateUtil.testMode = testMode;
+    }
     /**
      * Shuts down the SessionFactory and releases resources.
      * <p>

@@ -37,8 +37,8 @@ public class Copy {
      * This field cannot be null.
      */
     @Display
-    @MatchPattern(value = "^\\d{5}$")
-    @Column(nullable = false, unique = true)
+    @MatchPattern(value = "^[1-9]\\d*$")
+    @Column(nullable = false)
     private int copyNumber;
 
     /**

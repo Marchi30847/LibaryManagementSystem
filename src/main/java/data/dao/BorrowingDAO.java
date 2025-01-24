@@ -42,7 +42,7 @@ public class BorrowingDAO extends DAO<Borrowing> {
 
     public List<Borrowing> getBorrowingsByUserId(int userId) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.createQuery("FROM Borrowing WHERE user.id = :userId", Borrowing.class)
+            return session.createQuery("FROM Borrowing WHERE member.id = :userId", Borrowing.class)
                     .setParameter("userId", userId)
                     .list();
         }

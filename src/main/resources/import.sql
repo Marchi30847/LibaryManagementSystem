@@ -87,11 +87,11 @@ VALUES ('Book One', 'Author A', 1, 2001, '978-1234567890'),
 
 -- Insert values into Copy table (after Book records)
 INSERT INTO Copy (bookId, copyNumber, status)
-VALUES (1, 11111, 'Available'),
-       (2, 22222, 'Borrowed'),
-       (3, 33333, 'Available'),
-       (4, 44444, 'Available'),
-       (5, 55555, 'Borrowed');
+VALUES (1, 1, 'Available'),
+       (2, 1, 'Borrowed'),
+       (3, 1, 'Available'),
+       (4, 1, 'Available'),
+       (5, 1, 'Borrowed');
 
 -- Insert values into Librarian table (after Member records)
 INSERT INTO Librarian (memberId, employmentDate, position)

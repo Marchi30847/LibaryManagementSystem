@@ -9,7 +9,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Temporal;
 
 import java.lang.reflect.Field;
-import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -27,7 +26,7 @@ public class LibrarianModel implements LibrarianContract.Model {
      *
      * @param <T>         the type of the entity
      * @param columnNames the column names to be displayed
-     * @param entities    the list of entities to be mapper
+     * @param entities    the list of entities to be mapped
      * @return a 2D array of String values representing the mapped entities
      */
     private <T> String[][] mapEntitiesToColumns(List<String> columnNames, List<T> entities) {
@@ -54,7 +53,13 @@ public class LibrarianModel implements LibrarianContract.Model {
         return result.toArray(new String[0][0]);
     }
 
-
+    /**
+     * Retrieves data for the specified entity class.
+     *
+     * @param entityClass the class of the entity to retrieve data for
+     * @param <T>         the type of the entity
+     * @return a 2D array of String values representing the data of the specified entity
+     */
     @Override
     public <T> String[][] getData(Class<T> entityClass) {
         DAO<?> dao = DAOFactory.getDAO(entityClass);
@@ -63,8 +68,14 @@ public class LibrarianModel implements LibrarianContract.Model {
         return mapEntitiesToColumns(columnNames, entities);
     }
 
-
-    public void insert(Map<String, Object> fieldData, Class<?> entityClass) {
+    /**
+     * Inserts a new entity into the database.
+     *
+     * @param fieldData   the field data for the new entity
+     * @param entityClass the class of the entity to insert
+     * @return the ID of the newly inserted entity
+     */
+    public int insert(Map<String, Object> fieldData, Class<?> entityClass) {
         try {
             Object entity = entityClass.getDeclaredConstructor().newInstance();
 
@@ -125,24 +136,50 @@ public class LibrarianModel implements LibrarianContract.Model {
 
             DAO<Object> dao = (DAO<Object>) DAOFactory.getDAO(entityClass);
             dao.save(entity);
+            Field idField = dao.getAll().getLast().getClass().getDeclaredField("id");
+            idField.setAccessible(true);
+            return idField.getInt(entity);
 
         } catch (Exception e) {
+            e.printStackTrace();
             throw new RuntimeException("Failed to insert entity", e);
         }
     }
 
+    /**
+     * Checks if a field is nullable based on its annotations.
+     *
+     * @param field the field to check
+     * @return true if the field is nullable, false otherwise
+     */
     private boolean isFieldNullable(Field field) {
         Column columnAnnotation = field.getAnnotation(Column.class);
         return columnAnnotation != null && columnAnnotation.nullable();
     }
 
+    /**
+     * Deletes an entity from the database by its ID.
+     *
+     * @param id          the ID of the entity to delete
+     * @param entityClass the class of the entity to delete
+     * @return the ID of the deleted entity
+     */
     @Override
-    public void delete(int id, Class<?> entityClass) {
+    public int delete(int id, Class<?> entityClass) {
         DAO<?> dao = DAOFactory.getDAO(entityClass);
         dao.delete(id);
+        return id;
     }
 
-    public void update(int id, Map<String, Object> fieldData, Class<?> entityClass) {
+    /**
+     * Updates an existing entity in the database.
+     *
+     * @param id          the ID of the entity to update
+     * @param fieldData   the field data to update
+     * @param entityClass the class of the entity to update
+     * @return the ID of the updated entity
+     */
+    public int update(int id, Map<String, Object> fieldData, Class<?> entityClass) {
         Object entity = DAOFactory.getDAO(entityClass).getById(id);
 
         Arrays.stream(entity.getClass().getDeclaredFields())
@@ -189,5 +226,6 @@ public class LibrarianModel implements LibrarianContract.Model {
 
         DAO<Object> dao = (DAO<Object>) DAOFactory.getDAO(entityClass);
         dao.update(entity);
+        return id;
     }
 }

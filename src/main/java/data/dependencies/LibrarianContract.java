@@ -1,42 +1,38 @@
 package data.dependencies;
 
 import data.constants.Tables;
-
 import java.awt.event.ActionListener;
 import java.util.Map;
 
 /**
- * Contract for the Librarian functionality in the application.
- * This interface defines the methods for the View, Presenter, and Model related to managing librarian actions.
- * It includes methods for interacting with and managing books, borrowings, copies, librarians, members, and publishers.
+ * Contract defining the functionality for managing librarian actions within the application.
+ * This interface contains the views, presenters, and model methods related to handling librarian operations,
+ * such as interacting with books, borrowings, copies, librarians, members, and publishers.
  */
 public interface LibrarianContract {
 
     /**
      * View interface for the Librarian's actions.
-     * This interface handles interactions with the user interface, such as adding listeners and updating tables.
+     * Handles user interface interactions such as adding action listeners, updating table data, and retrieving user input.
      */
     interface View {
 
         /**
-         * Adds an action listener to the insert button.
-         * The listener will be triggered when the user clicks the insert button.
+         * Adds an action listener to the insert button. Triggered when the user clicks the insert button.
          *
          * @param listener The action listener to be added.
          */
         void addInsertButtonListener(ActionListener listener);
 
         /**
-         * Adds an action listener to the delete button.
-         * The listener will be triggered when the user clicks the delete button.
+         * Adds an action listener to the delete button. Triggered when the user clicks the delete button.
          *
          * @param listener The action listener to be added.
          */
         void addDeleteButtonListener(ActionListener listener);
 
         /**
-         * Adds an action listener to the update button.
-         * The listener will be triggered when the user clicks the update button.
+         * Adds an action listener to the update button. Triggered when the user clicks the update button.
          *
          * @param listener The action listener to be added.
          */
@@ -48,23 +44,43 @@ public interface LibrarianContract {
         void addTabChangedListener();
 
         /**
-         * Retrieves the currently selected row in the table.
+         * Retrieves the currently selected row index in the table.
          *
          * @return The row index of the selected row.
          */
         int getCurrentSelectedRow();
 
+        /**
+         * Retrieves the currently selected column index in the table.
+         *
+         * @return The column index of the selected column.
+         */
         int getCurrentSelectedColumn();
 
+        /**
+         * Retrieves the name of the column at the given index.
+         *
+         * @param columnIndex The index of the column.
+         * @return The name of the column.
+         */
         String getColumnName(int columnIndex);
 
+        /**
+         * Retrieves the number of rows in the current table.
+         *
+         * @return The row count of the table.
+         */
         int getRowCount();
 
+        /**
+         * Retrieves the number of columns in the current table.
+         *
+         * @return The column count of the table.
+         */
         int getColumnCount();
 
-
         /**
-         * Retrieves the current table type being viewed.
+         * Retrieves the current table type being displayed.
          *
          * @return The current table type as a {@link Tables} enum.
          */
@@ -108,7 +124,8 @@ public interface LibrarianContract {
 
     /**
      * Presenter interface for the Librarian functionality.
-     * This interface defines methods for handling user interactions and managing the view and model.
+     * Handles the initialization of listeners, manages interactions between the view and model,
+     * and refreshes the data displayed in the UI.
      */
     interface Presenter {
 
@@ -118,23 +135,53 @@ public interface LibrarianContract {
         void initListeners();
 
         /**
-         * Fills the tables with the data required for display.
+         * Refreshes and fills the tables with the data required for display.
          */
         void refreshAll();
     }
 
     /**
      * Model interface for the Librarian functionality.
-     * This interface defines methods for accessing and manipulating the data related to books, borrowings, copies, librarians, members, and publishers.
+     * Defines methods for accessing and manipulating the data related to books, borrowings, copies, librarians,
+     * members, and publishers in the application.
      */
     interface Model {
 
+        /**
+         * Retrieves data for the specified entity class and returns it in a two-dimensional array format.
+         *
+         * @param <T> The type of the entity class.
+         * @param entityClass The class of the entity.
+         * @return The data for the specified entity class in a 2D string array format.
+         */
         <T> String[][] getData(Class<T> entityClass);
 
-        void insert(Map<String, Object> fieldData, Class<?> entityClass);
+        /**
+         * Inserts data for the specified entity class.
+         *
+         * @param fieldData A map containing the field names and their corresponding values for the entity.
+         * @param entityClass The class of the entity to be inserted.
+         * @return The ID of the inserted entity.
+         */
+        int insert(Map<String, Object> fieldData, Class<?> entityClass);
 
-        void delete(int id, Class<?> entityClass);
+        /**
+         * Deletes the entity with the specified ID.
+         *
+         * @param id The ID of the entity to be deleted.
+         * @param entityClass The class of the entity to be deleted.
+         * @return The ID of the deleted entity.
+         */
+        int delete(int id, Class<?> entityClass);
 
-        void update(int id, Map<String, Object> fieldData, Class<?> entityClass);
+        /**
+         * Updates the entity with the specified ID using the provided field data.
+         *
+         * @param id The ID of the entity to be updated.
+         * @param fieldData A map containing the field names and their corresponding updated values.
+         * @param entityClass The class of the entity to be updated.
+         * @return The ID of the updated entity.
+         */
+        int update(int id, Map<String, Object> fieldData, Class<?> entityClass);
     }
 }

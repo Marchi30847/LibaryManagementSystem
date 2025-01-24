@@ -3,13 +3,21 @@ package data.annotations;
 import java.lang.annotation.*;
 
 /**
- * This annotation is used to mark fields that should be displayed in the application.
- * It can be applied to class fields to indicate that these fields should be included in the UI
- * (e.g., in tables or forms) or considered for display in some way.
- * The annotation itself doesn't affect the field's behavior directly but is used for filtering
- * and processing by tools or frameworks that recognize this annotation.
+ * Annotation used to mark fields that should be included in the application's display or UI components.
+ *
+ * <p>This annotation can be used to indicate that a specific field should appear in elements such as tables, forms, or other visible UI components.</p>
+ *
+ * <p>Attributes:</p>
+ * <ul>
+ *   <li>None</li>
+ * </ul>
+ *
+ * <p>Behavior:</p>
+ * <ul>
+ *   <li>This annotation does not affect field behavior directly but can be processed by tools or frameworks at runtime.</li>
+ * </ul>
  */
-@Target(ElementType.FIELD) // Specifies that this annotation can be applied to fields only
-@Retention(RetentionPolicy.RUNTIME) // Makes this annotation available at runtime
+@Target(ElementType.FIELD) // Applicable to fields only
+@Retention(RetentionPolicy.RUNTIME) // Retained at runtime for reflective processing
 public @interface Display {
 }

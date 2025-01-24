@@ -1,7 +1,5 @@
 package data.dependencies;
 
-import javax.swing.event.ChangeListener;
-import java.util.Map;
 import java.util.function.Consumer;
 
 /**

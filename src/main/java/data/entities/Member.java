@@ -55,14 +55,6 @@ public class Member {
     private String address;
 
     /**
-     * A reference to the Librarian entity associated with this member.
-     * This relationship is mapped by the "member" field in the Librarian class.
-     * This association is cascaded (i.e., operations like save or delete will also affect the associated Librarian).
-     */
-    @OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
-    private Librarian librarian;
-
-    /**
      * Retrieves the unique ID of the member.
      *
      * @return The ID of the member.
@@ -150,24 +142,6 @@ public class Member {
      */
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    /**
-     * Retrieves the associated Librarian entity for this member.
-     *
-     * @return The associated Librarian entity.
-     */
-    public Librarian getLibrarian() {
-        return librarian;
-    }
-
-    /**
-     * Sets the associated Librarian entity for this member.
-     *
-     * @param librarian The Librarian entity to associate with the member.
-     */
-    public void setLibrarian(Librarian librarian) {
-        this.librarian = librarian;
     }
 
     /**
